@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.eduardonakai.gestao_vagas.exceptions.UserFoundExcepetion;
-import br.com.eduardonakai.gestao_vagas.modules.candidate.CandidateEntity;
-import br.com.eduardonakai.gestao_vagas.modules.candidate.CandidateRepository;
+import br.com.eduardonakai.gestao_vagas.modules.candidate.models.CandidateEntity;
+import br.com.eduardonakai.gestao_vagas.modules.candidate.repositorys.CandidateRepository;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;

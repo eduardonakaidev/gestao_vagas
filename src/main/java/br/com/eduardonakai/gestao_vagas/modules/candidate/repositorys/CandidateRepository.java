@@ -1,9 +1,11 @@
-package br.com.eduardonakai.gestao_vagas.modules.candidate;
+package br.com.eduardonakai.gestao_vagas.modules.candidate.repositorys;
 
 import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.eduardonakai.gestao_vagas.modules.candidate.models.CandidateEntity;
 
 
 

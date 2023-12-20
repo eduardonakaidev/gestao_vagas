@@ -1,4 +1,4 @@
-package br.com.eduardonakai.gestao_vagas.modules.candidate;
+package br.com.eduardonakai.gestao_vagas.modules.candidate.models;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
