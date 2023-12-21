@@ -29,7 +29,7 @@ public class JobEntity {
     @JoinColumn(name = "company_id",insertable = false,updatable = false)
     private CompanyEntity companyEntity;
 
-    @Column(name = "company_id")
+    @Column(name = "company_id" ,nullable = false)
     private UUID companyId;
 
     @CreationTimestamp
