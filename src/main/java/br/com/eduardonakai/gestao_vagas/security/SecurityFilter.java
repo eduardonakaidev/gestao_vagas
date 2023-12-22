@@ -40,6 +40,6 @@ public class SecurityFilter extends OncePerRequestFilter{
         }
     }
         filterChain.doFilter(request, response);
-        throw new UnsupportedOperationException("");
+        
     }    
 }

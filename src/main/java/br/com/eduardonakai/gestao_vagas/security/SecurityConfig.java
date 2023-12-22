@@ -18,21 +18,26 @@ public class SecurityConfig {
     private SecurityFilter securityFilter;
     @Autowired
     private SecurityCandidateFilter securityCandidateFilter;
-    @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        http.csrf(csrf -> csrf.disable())
-        .authorizeHttpRequests(auth->{
-            auth.requestMatchers("/candidate/").permitAll()
-            .requestMatchers("/company/").permitAll()
-            .requestMatchers("/company/auth").permitAll()
-            .requestMatchers("/candidate/auth").permitAll();
-            auth.anyRequest().authenticated();
 
-        }).addFilterBefore(securityCandidateFilter,BasicAuthenticationFilter.class)
-        .addFilterBefore(securityFilter, BasicAuthenticationFilter.class);
-      
+    
+    @Bean
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> {
+              auth.requestMatchers("/candidate/").permitAll()
+                  .requestMatchers("/company/").permitAll()
+                  .requestMatchers("/company/auth").permitAll()
+                  .requestMatchers("/candidate/auth").permitAll()
+                  .requestMatchers("/swagger-ui/**").permitAll()
+                  .requestMatchers("/v3/api-docs/**").permitAll()
+                  .requestMatchers("/swagger-resource/**").permitAll();
+
+              auth.anyRequest().authenticated();
+            })
+            .addFilterBefore(securityCandidateFilter, BasicAuthenticationFilter.class)
+            .addFilterBefore(securityFilter, BasicAuthenticationFilter.class);
         return http.build();
-    }
+      }
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
